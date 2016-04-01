@@ -68,7 +68,7 @@ bool GotoAZ(float a, float z){
   float vAngle, uAngle;       // Angles of the arms
   if(tMag<=VMAG+UMAG && tMag>=abs(VMAG-UMAG)){ // If inside of reach
     vAngle= acos((VMAG*VMAG + tMag*tMag - UMAG*UMAG)/(2*VMAG*tMag))+tAngle;
-    uAngle= acos((VMAG*VMAG + UMAG*UMAG - tMag*tMag)/(2*VMAG*UMAG))-(PI-vAngle);
+    uAngle= acos((VMAG*VMAG + UMAG*UMAG - tMag*tMag)/(2*VMAG*UMAG)) - PI;  // MODIFIED-UNTESTED; changed the offset term to be just -PI; so calibration setup is an L shape
     // Use law of cosines to determine the angles based off the magnitudes of the limbs and target.
     vAngle=RTOD*vAngle;
     uAngle=RTOD*uAngle;
